@@ -1,0 +1,191 @@
+body {
+  background-color: #00050a;
+  margin: 0px;
+  font-family: "NexaRegular";
+}
+
+@font-face {
+  font-family: "NexaRegular";
+  src: url("../font/NexaRegular.woff2") format("woff2"),
+    url("../font/NexaRegular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.navbar {
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  margin: 0 20% 0 20%;
+}
+
+.navbar-left div:hover {
+  opacity: 90%;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/*
+.navbar-left div{
+    text-transform: uppercase;
+    font-weight: 600;
+}
+*/
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left > *,
+.navbar-right > * {
+  margin: 20px;
+}
+
+.element {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: rgba(30, 30, 30, 0.5);
+}
+
+.element::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background-color: #00ff00;
+  opacity: 1;
+  transition: width 0.3s ease-out;
+  border-radius: 0 0 5px 5px;
+}
+
+.element:hover::before {
+  width: 100%;
+}
+
+/*
+
+.login,
+.signup{
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius:40px ;
+    padding: 5px 20px 5px 20px;
+}
+
+.signup{
+    background-color: black;
+    color: white;
+}
+
+*/
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.intro {
+  width: 60%;
+  text-align: center;
+  margin: 10% 20%;
+  height: 40vh;
+}
+
+h2 {
+  font-size: 5em;
+  margin: 100px 0;
+  color: #fff;
+}
+
+p {
+  font-size: 2em;
+  margin: -10px 0;
+  color: #fff;
+}
+
+.competence {
+  color: #fff;
+  margin: 15% 15%;
+}
+
+.competence svg {
+  width: 50px;
+  height: 50px;
+}
+
+.progress-bar {
+  width: 25%;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.progress-1 {
+  height: 100%;
+  background-color: #00ff00;
+  width: 90%;
+}
+.progress-2 {
+  height: 100%;
+  background-color: #00ff00;
+  width: 30%;
+}
+.progress-3 {
+  height: 100%;
+  background-color: #00ff00;
+  width: 75%;
+}
+.progress-4 {
+  height: 100%;
+  background-color: #00ff00;
+  width: 50%;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.projet {
+  color: #fff;
+  margin: 40% 15%;
+}
+
+.GSB {
+  background-color: #131313;
+  border-radius: 20px;
+  width: 500px;
+  align-items: center;
+  text-align: center;
+  padding: 100px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.GSB svg {
+  width: 20px;
+  height: 20px;
+  margin: 0 20px;
+}
