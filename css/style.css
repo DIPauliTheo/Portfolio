@@ -2,7 +2,9 @@ body {
   background-color: #00050a;
   margin: 0px;
   font-family: "NexaRegular";
+  scroll-behavior: smooth;
 }
+
 
 @font-face {
   font-family: "NexaRegular";
@@ -19,7 +21,7 @@ h1 {
 
 .navbar {
   color: #ffffff;
-  padding: 20px;
+  padding: 40px 0px;
   display: flex;
   justify-content: space-between;
   justify-items: center;
@@ -107,7 +109,15 @@ h1 {
   text-align: center;
   margin: 10% 20%;
   height: 40vh;
+  margin-bottom: 40%;
+  
 }
+
+.intro svg{
+  margin-top: 75px;
+}
+
+
 
 h2 {
   font-size: 5em;
@@ -124,6 +134,9 @@ p {
 .competence {
   color: #fff;
   margin: 15% 15%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 2s, transform 1s;
 }
 
 .competence svg {
@@ -170,22 +183,59 @@ p {
 
 .projet {
   color: #fff;
-  margin: 40% 15%;
+  margin: 25% 15%;
+  width: 80%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s, transform 1s;
+  
 }
 
 .GSB {
-  background-color: #131313;
-  border-radius: 20px;
+  top: calc(50% - 175px);
+  left: calc(50% - 125px);
+  background: inherit;
+  overflow: hidden;
   width: 500px;
   align-items: center;
   text-align: center;
   padding: 100px;
   text-decoration: none;
   color: #fff;
+  margin: 10px 20px;
+  border: #00FF00 solid;
+  color: #00ff00;
+  -webkit-mask: 
+      conic-gradient(from 180deg at top 8px right 8px, #0000 90deg,#000 0) var(--_i,200%) 0  /200% var(--_i,8px) border-box no-repeat,
+      conic-gradient(at bottom 8px left  8px,  #0000 90deg,#000 0) 0   var(--_i,200%)/var(--_i,8px) 200% border-box no-repeat,
+      linear-gradient(#000 0 0) padding-box no-repeat;
+      transition: .3s, -webkit-mask-position .3s .3s;
 }
+
+.GSB:hover{
+  --_i: 100%;
+            color: #00FF00;
+            transition: .2s, -webkit-mask-size .3s .3s;
+}
+
+
 
 .GSB svg {
   width: 20px;
   height: 20px;
   margin: 0 20px;
+}
+
+
+.titre_projet{
+  margin: 200px 0;
+}
+
+.stage{
+  color: #fff;
+  margin: 25% 15%;
+  width: 80%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s, transform 1s;
 }
