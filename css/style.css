@@ -52,13 +52,13 @@ html {
 
 .title {
   margin: 0;
-  color: #ffffff;
+  color: #00ff00;
   text-decoration: none;
   outline: none;
 }
 
 .title:hover {
-  color: #00ff00;
+  color: #ffffff;
 }
 
 .element {
