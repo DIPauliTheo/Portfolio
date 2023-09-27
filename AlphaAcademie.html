@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+
+    <script>
+      window.addEventListener("scroll", function () {
+        var projet = document.getElementById("projet");
+        var positionTopProjet = projet.offsetTop;
+
+        var competence = document.getElementById("competence");
+        var positionTopCompetence = competence.offsetTop;
+
+        var experience = document.getElementById("experience");
+        var positionTopExperience = experience.offsetTop;
+
+        var windowHeight = window.innerHeight;
+
+        if (window.pageYOffset > positionTopCompetence - windowHeight + 100) {
+          competence.style.opacity = 1;
+          competence.style.transform = "translateY(0)";
+        }
+
+        if (window.pageYOffset > positionTopProjet - windowHeight + 100) {
+          projet.style.opacity = 1;
+          projet.style.transform = "translateY(0)";
+        }
+
+        if (window.pageYOffset > positionTopExperience - windowHeight + 100) {
+          experience.style.opacity = 1;
+          experience.style.transform = "translateY(0)";
+        }
+
+        }
+      );
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a class="title"href="index.html"> <h1>@theodipauli/<span class="blink">|</span></h1></a>
+      </div>
+
+      <div class="navbar-right">
+        <a href="#competence"><span class="element">Compétences</span></a>
+        <a href="#projet"><span class="element">Projets</span></a>
+        <a href="#experience"><span class="element">Experiences</span></a>
+        <a href="document.html"><span class="element">Documents</span></a>
+        <a href="document.html"><span class="element">Passions</span></a>
+        <!--<div class="login">Se Connecter</div>
+            <div class="signup">Rejoindre Maintenant</div>-->
+      </div>
+    </div>
+
+    <section class="project-details">
+        <div class="main-container">
+          <div class="project-details__content">
+            <div class="project-details__showcase-img-cont">
+              <img
+                src="./assets/jpeg/alpha.png"
+                alt="Project Image"
+                class="project-details__showcase-img"
+              />
+            </div>
+            <div class="project-details__content-main">
+              <div class="project-details__desc">
+                <h2>AlphaAcademie</h2>
+                <p class="project-details__desc-para">
+                  Durant mon stage j'ai peu développé la présence en ligne de la startup : Un site web ainsi qu'une application android principalement en Nocode avec plusieur application.
+                </p>
+              </div>
+              <div class="project-details__tools-used">
+                <h2>Application Utilisé</h2>
+                <div class="skills">
+                  <div class="skills__skill">Glide <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="400.000000pt" height="400.000000pt" viewBox="0 0 400.000000 400.000000" preserveAspectRatio="xMidYMid meet">
+
+                    <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
+                    <path d="M0 2000 l0 -2000 2000 0 2000 0 0 2000 0 2000 -2000 0 -2000 0 0 -2000z m2128 825 c-4 -368 -4 -370 -30 -440 -88 -243 -250 -404 -490 -487 -61 -21 -80 -22 -503 -26 l-440 -3 730 731 730 730 3 -67 c2 -38 2 -234 0 -438z m477 -1425 l-730 -730 -3 67 c-2 38 -1 235 1 438 3 346 5 374 25 432 40 117 115 240 191 313 99 96 246 174 374 200 23 4 229 8 457 9 l415 1 -730 -730z"/>
+                    </g>
+                    </svg> </div>
+                </div>
+              </div>
+              <div class="project-details__links">
+                <h2>Les Liens</h2>
+                <a
+                  href="https://github.com/DIPauliTheo/GsbV2"
+                  class="project-link"
+                  >lien du site</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

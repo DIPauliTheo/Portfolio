@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+    <script>
+      window.addEventListener("scroll", function () {
+        var projet = document.getElementById("projet");
+        var positionTopProjet = projet.offsetTop;
+
+        var competence = document.getElementById("competence");
+        var positionTopCompetence = competence.offsetTop;
+
+        var experience = document.getElementById("experience");
+        var positionTopExperience = experience.offsetTop;
+
+        var windowHeight = window.innerHeight;
+
+        if (window.pageYOffset > positionTopCompetence - windowHeight + 100) {
+          competence.style.opacity = 1;
+          competence.style.transform = "translateY(0)";
+        }
+
+        if (window.pageYOffset > positionTopProjet - windowHeight + 100) {
+          projet.style.opacity = 1;
+          projet.style.transform = "translateY(0)";
+        }
+
+        if (window.pageYOffset > positionTopExperience - windowHeight + 100) {
+          experience.style.opacity = 1;
+          experience.style.transform = "translateY(0)";
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a class="title" href="index.html">
+          <h1>@theodipauli/<span class="blink">|</span></h1></a
+        >
+      </div>
+
+      <div class="navbar-right">
+        <a href="#competence"><span class="element">Compétences</span></a>
+        <a href="#projet"><span class="element">Projets</span></a>
+        <a href="#experience"><span class="element">Experiences</span></a>
+        <a href="document.html"><span class="element">Documents</span></a>
+        <a href="document.html"><span class="element">Passions</span></a>
+        <!--<div class="login">Se Connecter</div>
+            <div class="signup">Rejoindre Maintenant</div>-->
+      </div>
+    </div>
+
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content-main">
+          <h2>Cornemuse</h2>
+          <p>
+            Depuis mon plus jeune âge je suis passionné par la musique bretonne,
+            et plus particulierement par la cornemuse. Je suis actuellement
+            adhérant dans 2 bagad du morbihan (Bagad marionig bro ar Faoued &
+            bagad Bro Kervignag). Avec ces different bagad j'ai pû participer au
+            Festival interceltique de lorient ainsi qu'a plusieur concours qui
+            réuni plusieur bagad de bretagne.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="slider-container">
+      <div class="menu">
+        <label for="slide-dot-1"></label>
+        <label for="slide-dot-2"></label>
+        <label for="slide-dot-3"></label>
+        <!-- Ajoutez davantage d'étiquettes de navigation ici si nécessaire -->
+      </div>
+
+      <input
+        class="slide-input"
+        id="slide-dot-1"
+        type="radio"
+        name="slides"
+        checked
+      />
+      <img
+        class="slide-img"
+        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide1.jpg"
+      />
+
+      <input class="slide-input" id="slide-dot-2" type="radio" name="slides" />
+      <img
+        class="slide-img"
+        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg"
+      />
+
+      <input class="slide-input" id="slide-dot-3" type="radio" name="slides" />
+      <img
+        class="slide-img"
+        src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg"
+      />
+
+      <!-- Ajoutez davantage d'images et d'entrées radio pour les autres diapositives ici -->
+
+      <!-- Ajoutez les flèches de navigation au-dessus des images -->
+      <label class="prev-arrow" for="slide-dot-3"></label>
+      <label class="next-arrow" for="slide-dot-2"></label>
+    </div>
+  </body>
+</html>
