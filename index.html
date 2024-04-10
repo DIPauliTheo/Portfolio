@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Portfolio</title>
+    <script>
+        (function() {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="assets/css/Animated-Scroll-Down-Mouse.css">
+    <link rel="stylesheet" href="assets/css/circle-progress-bar.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic-icons.css">
+    <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/909ceff46b1e8b0a46261d3737e348c6?family=NexaRegular">
+    <link rel="stylesheet" href="assets/css/Projects-Grid-images.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Wave-Flow-Animation.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-body py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="index.html">
+                <h1 class="text-primary" href="index.html">@theodipauli/</h1><span class="text-primary" id="blink">|</span>
+            </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active nav-element" href="#">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link nav-element" href="">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link nav-element" href="#">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link nav-element" href="#">Documents</a></li>
+                    <li class="nav-item"><a class="nav-link nav-element" href="#">Passions</a></li>
+                    <li class="theme-switcher nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" fill="none" class="text-primary mb-1">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C10.5523 2 11 2.44772 11 3V4C11 4.55228 10.5523 5 10 5C9.44772 5 9 4.55228 9 4V3C9 2.44772 9.44772 2 10 2ZM14 10C14 12.2091 12.2091 14 10 14C7.79086 14 6 12.2091 6 10C6 7.79086 7.79086 6 10 6C12.2091 6 14 7.79086 14 10ZM13.5356 14.9497L14.2427 15.6568C14.6332 16.0473 15.2664 16.0473 15.6569 15.6568C16.0474 15.2663 16.0474 14.6331 15.6569 14.2426L14.9498 13.5355C14.5593 13.145 13.9261 13.145 13.5356 13.5355C13.1451 13.926 13.1451 14.5592 13.5356 14.9497ZM15.6568 4.34309C16.0473 4.73362 16.0473 5.36678 15.6568 5.75731L14.9497 6.46441C14.5592 6.85494 13.926 6.85494 13.5355 6.46441C13.145 6.07389 13.145 5.44072 13.5355 5.0502L14.2426 4.34309C14.6331 3.95257 15.2663 3.95257 15.6568 4.34309ZM17 11C17.5523 11 18 10.5523 18 10C18 9.44772 17.5523 9 17 9H16C15.4477 9 15 9.44772 15 10C15 10.5523 15.4477 11 16 11H17ZM10 15C10.5523 15 11 15.4477 11 16V17C11 17.5523 10.5523 18 10 18C9.44772 18 9 17.5523 9 17V16C9 15.4477 9.44772 15 10 15ZM5.05031 6.46443C5.44083 6.85496 6.074 6.85496 6.46452 6.46443C6.85505 6.07391 6.85505 5.44074 6.46452 5.05022L5.75742 4.34311C5.36689 3.95259 4.73373 3.95259 4.3432 4.34311C3.95268 4.73363 3.95268 5.3668 4.3432 5.75732L5.05031 6.46443ZM6.46443 14.9497L5.75732 15.6568C5.3668 16.0473 4.73363 16.0473 4.34311 15.6568C3.95259 15.2663 3.95259 14.6331 4.34311 14.2426L5.05022 13.5355C5.44074 13.145 6.07391 13.145 6.46443 13.5355C6.85496 13.926 6.85496 14.5592 6.46443 14.9497ZM4 11C4.55228 11 5 10.5523 5 10C5 9.44772 4.55228 9 4 9H3C2.44772 9 2 9.44772 2 10C2 10.5523 2.44772 11 3 11H4Z" fill="currentColor"></path>
+                            </svg></a>
+                        <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                                    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                                </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                                </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                                    <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                                </svg>Auto</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="hero" class="py-4 py-xl-5">
+        <div class="container h-100">
+            <div class="col-md-10 col-xl-8 text-center d-flex d-sm-flex d-md-flex justify-content-center align-items-center mx-auto justify-content-md-start align-items-md-center justify-content-xl-center" id="hero-col">
+                <div id="hero-div" style="margin-bottom: 0px;">
+                    <h2 class="text-uppercase fw-bold mb-3" id="hero-title" style="margin-left: -200px;margin-right: -200px;">Hey, je suis théo di pauli</h2>
+                    <p id="hero-paragraph" class="mb-4" style="margin-left: -41px;margin-right: -45px;">Je suis actuellement en étude (BTS SIO) en tant que developpeur web et logiciel</p>
+                </div>
+            </div>
+        </div>
+        <div class="mouse-scroll-container mt-5 d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block">
+            <div class="mouse-scroll loading-spinner">
+                <div class="one"></div>
+                <div class="two"></div>
+                <div class="three"></div>
+            </div>
+        </div>
+    </section>
+    <div class="container py-4 py-xl-5 ps-xxl-0 mt-5" style="margin-bottom: 200px;" data-bs-target="#navcol-2" data-bs-smooth-scroll="true" data-bs-spy="scroll">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>Mes Projet</h2>
+                <p class="w-lg-50">Liste de mes projet durant mes années d'études</p>
+            </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col">
+                <div><img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;" src="assets/img/RideToHome.png">
+                    <div class="py-4">
+                        <h4>Ride To Home</h4>
+                        <p>Projet de 1ére année de BTS SIO<br>Site web en HTML CSS</p>
+                        <div class="d-inline-flex p-2"><a class="btn btn-primary" role="button" href="ride%20to%20home.html">À propos</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div><img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;" src="assets/img/MVC.png">
+                    <div class="py-4">
+                        <h4>Galaxy Swiss Bourdin&nbsp; MVC</h4>
+                        <p>Projet de 2ème année de BTS SIO<br>Galaxy Swiss Bourdin MVC est un projet de gestion des remboursement d'une entreprise fictive en PHP</p>
+                        <div class="d-inline-flex p-2"><a class="btn btn-primary" role="button" href="MVC.html">À propos</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div><img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;" src="assets/img/GSB.png">
+                    <div class="py-4">
+                        <h4>Galaxy Swiss Bourdin&nbsp; Java</h4>
+                        <p>Projet de 2ème année de BTS SIO<br>Galaxy Swiss Bourdin est un projet d'une application Windows de gestion des visiteur médical et médecins d'une entreprise fictive en Java<br><br></p>
+                        <div class="d-inline-flex p-2"><a class="btn btn-primary" role="button" href="JAVA">À propos</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div><img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;" src="assets/img/GSB.png">
+                    <div class="py-4">
+                        <h4>Galaxy Swiss Bourdin&nbsp; Java Android</h4>
+                        <p>Projet de 2ème année de BTS SIO<br>Galaxy Swiss Bourdin Android est un projet d'une application&nbsp;Android&nbsp;de gestion des stocks de gélule d'une entreprise fictive en Java<br><br></p>
+                        <div class="d-inline-flex p-2"><a class="btn btn-primary" role="button" href="ANDROID.html">À propos</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4 py-xl-5 ps-xxl-0 mt-5" style="padding-left: 0px;">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>Mes Éxpérience</h2>
+                <p class="w-lg-50">Liste de mes stages et alternances</p>
+            </div>
+        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+            <div class="col">
+                <div><img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;" src="assets/img/alpha.png">
+                    <div class="py-4">
+                        <h4>AlphaAcadémie</h4>
+                        <p>Projet de 1ére année de BTS SIO<br>Site web en HTML CSS</p><a href="#">A propos</a>
+                    </div>
+                    <div class="d-inline-flex p-2"><a class="btn btn-primary" role="button" href="AlphaAcademie.html">À propos</a></div>
+                </div>
+            </div>
+            <div class="col">
+                <div><img class="rounded img-fluid d-block w-100 fit-cover" style="height: 200px;" src="assets/img/reorev.png">
+                    <div class="py-4">
+                        <h4>ReoRev</h4>
+                        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                    </div>
+                    <div class="d-inline-flex p-2"><a class="btn btn-primary" role="button" href="reorev.html">À propos</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section></section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
